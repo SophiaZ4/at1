@@ -1,9 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.shortcuts import redirect
 
 def index(request):
     if not request.user.is_authenticated:
@@ -19,9 +19,8 @@ def login_view(request):
             login(request, user)
             return HttpResponseRedirect(reverse("users:index"))
         else:
-            return render(request, "users/login.html", {
-                "message": "Invalid Credentials."
-            })
+            messages.success(request, "Invalid Credentials.")
+            return render(request, "users/login.html")
     return render(request, "users/login.html")
 
 def logout_view(request):
