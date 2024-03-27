@@ -1,3 +1,42 @@
-/*body { font-family: Arial, sans-serif; padding: 20px; }
+body { font-family: Arial, sans-serif; padding: 20px; }
 .question, .answer { margin: 20px; font-size: 20px; }
-#revealBtn { margin: 20px; font-size: 16px; cursor: pointer; }*/
+#revealBtn { margin: 20px; font-size: 16px; cursor: pointer; }
+
+/* styles.css */
+
+/* Style for buttons */
+button {
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Style for task list */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Style for task item */
+.task-item {
+    background-color: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.task-item.done {
+    text-decoration: line-through;
+    color: #888;
+}

@@ -29,3 +29,27 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+function markDone(taskId) {
+    fetch(`/mark_done/${taskId}`, {method: 'POST'})
+        .then(response => {
+            if (response.ok) {
+                window.location.reload(); // Reload the page after marking task as done
+            }
+        })
+        .catch(error => {
+            console.error('Error marking task as done:', error); // Error message
+        });
+}
+
+function removeTask(taskId) {
+    fetch(`/remove_task/${taskId}`, {method: 'POST'})
+        .then(response => {
+            if (response.ok) {
+                window.location.reload(); // Reload the page after removing task
+            }
+        })
+        .catch(error => {
+            console.error('Error removing task:', error); // Error message
+        });
+}
