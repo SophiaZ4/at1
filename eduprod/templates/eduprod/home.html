@@ -1,12 +1,5 @@
-<!-- home.html 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Task Manager</title>
-</head>
-<body>
+{% extends "eduprod/layout.html" %}
+{% block body %}
     <h1>Task Manager</h1>
     <ul>
         {% for task in tasks %}
@@ -15,16 +8,15 @@
             {% if task.is_done %}
             (Done)
             {% endif %}
-            <button onclick="markDone({{ task.id }})">Mark as Done</button>
-            <button onclick="removeTask({{ task.id }})">Remove</button>         
+            <button onclick="markDone({{task.id}})">Mark as Done</button>
+            <button onclick="removeTask({{task.id}})">Remove</button>         
         </li>
         {% endfor %}
     </ul>
-    <a href="{% url 'add_task' %}">Add Task</a>
-
+    <a href="{% url 'eduprod:add_task' %}">Add Task</a>       
     <script>
         function markDone(taskId) {
-            fetch(`/mark_done/${taskId}`, {method: 'POST'})
+            fetch(`/home/mark_done/${taskId}`, {method: 'GET'})
                 .then(response => {
                     if (response.ok) {
                         window.location.reload();
@@ -33,7 +25,7 @@
         }
 
         function removeTask(taskId) {
-            fetch(`/remove_task/${taskId}`, {method: 'POST'})
+            fetch(`/home/remove_task/${taskId}`, {method: 'GET'})
                 .then(response => {
                     if (response.ok) {
                         window.location.reload();
@@ -41,6 +33,4 @@
                 });
         }
     </script>
-</body>
-</html>
--->
+{% endblock %}

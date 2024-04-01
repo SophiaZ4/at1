@@ -16,10 +16,10 @@ class Task(models.Model):
         ('assessment', 'Assessment'),
     )
 
-#restrictions for each data type
-    task_name = models.CharField(max_length=100)
-    task_type = models.CharField(max_length=20, choices=TASK_TYPES)
-    subject = models.CharField(max_length=50)
+#model with each data set needed with a restricted length
+    task_name = models.CharField(max_length=15)
+    task_type = models.CharField(max_length=10, choices=TASK_TYPES)
+    subject = models.CharField(max_length=15)
     due_date = models.DateField()
     task_requirements = models.TextField()
     is_done = models.BooleanField(default=False)

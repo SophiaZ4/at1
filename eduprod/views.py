@@ -1,21 +1,14 @@
 from django.core import serializers
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Question
 from .models import Task
 from django.http import HttpResponseBadRequest
 from django.contrib.auth.decorators import login_required
 
-
 @login_required
-def index(request):
-    questions = Question.objects.all()
-    questions_json = serializers.serialize('json', questions)
-    return render(request, 'eduprod/index.html', {'questions_json': questions_json})
-
-#home page function (displays tasks)
 def home(request):
     tasks = Task.objects.order_by('due_date')
-    return render(request, 'home.html', {'tasks': tasks})
+    return render(request, 'eduprod/home.html', {'tasks': tasks})
 
 #function to add tasks with their respective task details
 def add_task(request):
@@ -36,18 +29,20 @@ def add_task(request):
             due_date=due_date,
             task_requirements=task_requirements
         )
-        return redirect('home') #back to home page (where task list is displayed)
+        return redirect('eduprod:home') #back to home page (where task list is displayed)
     return render(request, 'eduprod/add_task.html')
 
 #function to mark tasks as complete
 def mark_task_done(request, task_id):
+    #return HttpResponseBadRequest("Task type is required") #error message if task type is not specified
     task = Task.objects.get(id=task_id)
     task.is_done = True #booleen update
     task.save()
-    return redirect('home')
+    return redirect('eduprod:home')
 
 #function to remove a task
 def remove_task(request, task_id):
+    #return HttpResponseBadRequest("Task type is required") #error message if task type is not specified
     task = Task.objects.get(id=task_id)
     task.delete()
-    return redirect('home')
+    return redirect('eduprod:home')

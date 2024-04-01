@@ -1,10 +1,9 @@
-<!--{% load static %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Q&A</title>
+<head> 
+    <title>Task Manager</title>
     <link href="{% static 'users/styles.css' %}" rel="stylesheet">
-    <script src="{% static 'eduprod/quiz.js' %}" defer></script>
 </head>
 <body>
     <div class="header">
@@ -28,78 +27,5 @@
     {% endif %}    
     {% block body %}
     {% endblock %}
-</body>
-</html>
--->
-
-<!-- add_task.html -->
-
-<head>
-    <meta charset="UTF-8">
-    <title>Add Task</title>
-</head>
-<body>
-    <h1>Add Task</h1>
-    <form method="post">
-        {% csrf_token %}
-        <label for="task_name">Task Name:</label>
-        <input type="text" id="task_name" name="task_name"><br><br>
-        <label for="task_type">Task Type:</label>
-        <select id="task_type" name="task_type">
-            <option value="homework">Homework</option>
-            <option value="assessment">Assessment</option>
-        </select><br><br>
-        <label for="subject">Subject:</label>
-        <input type="text" id="subject" name="subject"><br><br>
-        <label for="due_date">Due Date:</label>
-        <input type="date" id="due_date" name="due_date"><br><br>
-        <label for="task_requirements">Task Requirements:</label><br>
-        <textarea id="task_requirements" name="task_requirements"></textarea><br><br>
-        <input type="submit" value="Submit">
-    </form>
-</body>
-</html>
-
-<!-- home.html -->
-
-<head>
-    <meta charset="UTF-8">
-    <title>Task Manager</title>
-</head>
-<body>
-    <h1>Task Manager</h1>
-    <ul>
-        {% for task in tasks %}
-        <li>
-            {{ task.task_name }} - {{ task.subject }} - {{ task.due_date }} 
-            {% if task.is_done %}
-            (Done)
-            {% endif %}
-<!--            <button onclick="markDone({{ task.id }})">Mark as Done</button>
-            <button onclick="removeTask({{ task.id }})">Remove</button>         --><!--href="{% url 'add_task' %}"-->
-        </li>
-        {% endfor %}
-    </ul>
-    <a>Add Task</a>         
-
-    <script>
-        function markDone(taskId) {
-            fetch(`/mark_done/${taskId}`, {method: 'POST'})
-                .then(response => {
-                    if (response.ok) {
-                        window.location.reload();
-                    }
-                });
-        }
-
-        function removeTask(taskId) {
-            fetch(`/remove_task/${taskId}`, {method: 'POST'})
-                .then(response => {
-                    if (response.ok) {
-                        window.location.reload();
-                    }
-                });
-        }
-    </script>
 </body>
 </html>
