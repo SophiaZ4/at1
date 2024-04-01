@@ -4,12 +4,15 @@
     <ul>
         {% for task in tasks %}
         <li>
-            {{ task.task_name }} - {{ task.subject }} - {{ task.due_date }} 
+            {{ task.task_name }} for {{ task.subject }} due on {{ task.due_date }} 
             {% if task.is_done %}
             (Done)
             {% endif %}
             <button onclick="markDone({{task.id}})">Mark as Done</button>
-            <button onclick="removeTask({{task.id}})">Remove</button>         
+            <button onclick="removeTask({{task.id}})">Remove</button>
+            {% if task.task_requirements %}
+                Task Requirements: {{ task.task_requirements }}
+            {% endif %}
         </li>
         {% endfor %}
     </ul>

@@ -34,7 +34,6 @@ def add_task(request):
 
 #function to mark tasks as complete
 def mark_task_done(request, task_id):
-    #return HttpResponseBadRequest("Task type is required") #error message if task type is not specified
     task = Task.objects.get(id=task_id)
     task.is_done = True #booleen update
     task.save()
@@ -42,7 +41,6 @@ def mark_task_done(request, task_id):
 
 #function to remove a task
 def remove_task(request, task_id):
-    #return HttpResponseBadRequest("Task type is required") #error message if task type is not specified
     task = Task.objects.get(id=task_id)
     task.delete()
     return redirect('eduprod:home')

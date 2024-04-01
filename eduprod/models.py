@@ -16,7 +16,7 @@ class Task(models.Model):
         ('assessment', 'Assessment'),
     )
 
-#model with each data set needed with a restricted length
+#model with each data set with restrictions
     task_name = models.CharField(max_length=15)
     task_type = models.CharField(max_length=10, choices=TASK_TYPES)
     subject = models.CharField(max_length=15)
