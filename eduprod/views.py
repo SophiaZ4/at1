@@ -7,12 +7,12 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def home(request):
-    tasks = Task.objects.order_by('due_date')
+    tasks = Task.objects.order_by('due_date') #orders tasks by due date in a list on the home page
     return render(request, 'eduprod/home.html', {'tasks': tasks})
 
 #function to add tasks with their respective task details
 def add_task(request):
-    if request.method == 'POST':
+    if request.method == 'POST': #getting task details
         task_name = request.POST.get('task_name')
         task_type = request.POST.get('task_type')
         subject = request.POST.get('subject')
@@ -22,7 +22,7 @@ def add_task(request):
         if not task_type:
             return HttpResponseBadRequest("Task type is required") #error message if task type is not specified
 
-        Task.objects.create(
+        Task.objects.create( #adding to database with newly entered data
             task_name=task_name,
             task_type=task_type,
             subject=subject,

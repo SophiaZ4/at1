@@ -1,24 +1,24 @@
 {% extends "eduprod/layout.html" %}
 {% block body %}
-    <h1>Task Manager</h1>
+    <h1>Task Manager</h1> <!-- title -->
     <ul>
         {% for task in tasks %}
         <li>
             {{ task.task_name }} for {{ task.subject }} due on {{ task.due_date }} 
             {% if task.is_done %}
-            (Done)
+            (Done) <!-- marks a task as done, if it is done -->
             {% endif %}
-            <button onclick="markDone({{task.id}})">Mark as Done</button>
+            <button onclick="markDone({{task.id}})">Mark as Done</button> <!-- mark as done and remove task buttons -->
             <button onclick="removeTask({{task.id}})">Remove</button>
             {% if task.task_requirements %}
-                Task Requirements: {{ task.task_requirements }}
+                Task Requirements: {{ task.task_requirements }} <!-- if task requirements were provided, they are dislayed -->
             {% endif %}
         </li>
         {% endfor %}
     </ul>
-    <a href="{% url 'eduprod:add_task' %}">Add Task</a>       
+    <a href="{% url 'eduprod:add_task' %}">Add Task</a>       <!-- add task button -->
     <script>
-        function markDone(taskId) {
+        function markDone(taskId) { /* marks tasks as done*/
             fetch(`/home/mark_done/${taskId}`, {method: 'GET'})
                 .then(response => {
                     if (response.ok) {
@@ -27,7 +27,7 @@
                 });
         }
 
-        function removeTask(taskId) {
+        function removeTask(taskId) { /* removes tasks */
             fetch(`/home/remove_task/${taskId}`, {method: 'GET'})
                 .then(response => {
                     if (response.ok) {

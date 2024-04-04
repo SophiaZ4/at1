@@ -10,21 +10,21 @@
     <h1>Add Task</h1>
     <form method="post">
         {% csrf_token %}
-        <label for="task_name">Task Name:</label>
+        <label for="task_name">Task Name:</label> <!-- input space for the task name which is required to be entered-->
         <input type="text" id="task_name" name="task_name" required><br><br>
-        <label for="task_type">Task Type:</label>
+        <label for="task_type">Task Type:</label> <!-- dropdown for the task type which is required to be entered-->
         <select id="task_type" name="task_type" required>
-            <option value="" disabled selected>Select Task Type</option>
+            <option value="" disabled selected>Select Task Type</option> <!-- dropdown title by default-->
             <option value="homework">Homework</option>
             <option value="assessment">Assessment</option>
         </select><br><br>
-        <label for="subject">Subject:</label>
+        <label for="subject">Subject:</label> <!-- input space for subject which is required-->
         <input type="text" id="subject" name="subject" required><br><br>
-        <label for="due_date">Due Date:</label>
+        <label for="due_date">Due Date:</label> <!-- input for due date which is in date format and is required-->
         <input type="date" id="due_date" name="due_date" pattern="\d{4}-\d{2}-\d{2}" required><br><br>
-        <label for="task_requirements">Task Requirements:</label><br>
+        <label for="task_requirements">Task Requirements:</label><br> <!-- input for task requirements which aren't required-->
         <textarea id="task_requirements" name="task_requirements"></textarea><br><br>
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit"> <!-- submit button-->
     </form>
 </body>
 </html>
