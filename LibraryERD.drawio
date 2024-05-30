@@ -1,9 +1,51 @@
-<mxfile host="app.diagrams.net" modified="2024-05-30T04:04:00.867Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" version="24.4.10" etag="mg3WF0PHxGZCIUMQQZC9" type="github">
+<mxfile host="app.diagrams.net" modified="2024-05-30T04:31:28.066Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36" etag="JTkItAc77Srlw9oOjMP9" version="24.4.10" type="github">
   <diagram name="Page-1" id="7BWhyHECvYdd8YRtpRIn">
-    <mxGraphModel>
+    <mxGraphModel dx="763" dy="485" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="DsEUZMUmKPI_7A67Co7t-1" value="Loans" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="530" y="60" width="160" height="160" as="geometry" />
+        </mxCell>
+        <mxCell id="DsEUZMUmKPI_7A67Co7t-2" value="&lt;div&gt;&lt;span style=&quot;background-color: initial;&quot;&gt;+Loan Date (PK)&lt;/span&gt;&lt;br&gt;&lt;/div&gt;+Return Date&lt;div&gt;+Member ID (PK) (FK)&lt;/div&gt;&lt;div&gt;+Barcode (PK) (FK)&lt;/div&gt;&lt;div&gt;+Staff ID (FK)&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="DsEUZMUmKPI_7A67Co7t-1">
+          <mxGeometry y="50" width="160" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="DsEUZMUmKPI_7A67Co7t-3" value="Members" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="160" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="DsEUZMUmKPI_7A67Co7t-4" value="+Member ID (PK)&lt;br&gt;+Name&lt;br&gt;+Address&lt;div&gt;+Phone Number&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="DsEUZMUmKPI_7A67Co7t-3">
+          <mxGeometry y="50" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="DsEUZMUmKPI_7A67Co7t-5" value="Librarians" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="800" y="10" width="160" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="DsEUZMUmKPI_7A67Co7t-6" value="+Staff ID (PK)&lt;br&gt;+Name&lt;br&gt;+Address&lt;div&gt;+Phone Number&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="DsEUZMUmKPI_7A67Co7t-5">
+          <mxGeometry y="50" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="DsEUZMUmKPI_7A67Co7t-7" value="Books" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;arcSize=4;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="130" width="160" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="DsEUZMUmKPI_7A67Co7t-8" value="+Barcode (PK)&lt;div&gt;+ISBN&lt;br&gt;+Title&lt;br&gt;+Author&lt;/div&gt;&lt;div&gt;+Genre&lt;br&gt;&lt;div&gt;+Publication Year&lt;/div&gt;&lt;/div&gt;" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;html=1;" vertex="1" parent="DsEUZMUmKPI_7A67Co7t-7">
+          <mxGeometry y="50" width="160" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="DsEUZMUmKPI_7A67Co7t-19" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=0;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1.002;entryY=0.397;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="DsEUZMUmKPI_7A67Co7t-4" target="DsEUZMUmKPI_7A67Co7t-2">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="590" y="280" as="sourcePoint" />
+            <mxPoint x="690" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DsEUZMUmKPI_7A67Co7t-20" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;exitX=1.004;exitY=0.126;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="DsEUZMUmKPI_7A67Co7t-8" target="DsEUZMUmKPI_7A67Co7t-2">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="380" y="290" as="sourcePoint" />
+            <mxPoint x="480" y="190" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="DsEUZMUmKPI_7A67Co7t-21" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;rounded=0;exitX=-0.011;exitY=0.16;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1;entryY=0.25;entryDx=0;entryDy=0;" edge="1" parent="1" source="DsEUZMUmKPI_7A67Co7t-6" target="DsEUZMUmKPI_7A67Co7t-2">
+          <mxGeometry width="100" height="100" relative="1" as="geometry">
+            <mxPoint x="560" y="110" as="sourcePoint" />
+            <mxPoint x="660" y="10" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
